@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>LAN PDF → Text — Smart LoadBalancer Demo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>PDF → Text Service</h1>
+      <p class="muted">Upload a PDF from any device on the same network. The smart load balancer will forward it to the best server.</p>
+    </header>
+
+    <main>
+      <form id="convertForm" class="card">
+        <label class="file-label">
+          <input id="pdfFile" type="file" accept="application/pdf" required />
+        </label>
+
+        <div class="row">
+          <input id="lbUrl" type="text" placeholder="Load Balancer URL (e.g. http://10.11.149.50:8000/convert)" />
+          <button id="convertBtn" type="submit">Convert</button>
+        </div>
+
+        <div id="status" class="status">Ready</div>
+      </form>
+
+      <section id="resultArea" class="card hidden">
+        <h2>Extracted Text</h2>
+        <pre id="resultText" class="resultText"></pre>
+        <div id="serverInfo" class="muted"></div>
+      </section>
+    </main>
+
+    <footer>
+      <small>Designed for LAN demo — ensure load balancer is reachable from client device.</small>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
